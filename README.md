@@ -21,7 +21,7 @@ plink_prefix = {input_dir}/test
 
 `hii_plink remove_duplicates --plink_prefix {plink_prefix} -o {output_dir}` 
 
-#### Output 
+##### Output 
 
 `{output_dir}/test_no_dups_final.{bim,fam,bed}`
 
