@@ -1,6 +1,6 @@
 # hii_plink
 
-Streamlines various plink commands 
+Streamlines various plink commands processes
 
 ## Requiremnets 
 - python 3
