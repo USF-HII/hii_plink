@@ -29,16 +29,20 @@ plink_prefix = {input_dir}/test
 
 Uses snptk snpid_from_coord output to update plink files 
 
-      ```
       hii_plink snpid_from_coord_update 
             --plink_prefix {plink_prefix} 
             --update_file {path_to_update_file} 
             --delete_file {path_to_delete_file} 
             -o {output_dir}
-       ```
-
+       
 ### snpid_and_position_update 
 
 Uses snptk snpid_and_position output to update plink files 
 
-      `hii_plink snpid_and_position_update --plink_prefix {plink_prefix} --update_file {path_to_update_file} --delete_file {path_to_delete_file} --coord_file {path_to_file} --chr_file {path_to_file} -o {output_dir}`
+      hii_plink snpid_and_position_update 
+            --plink_prefix {plink_prefix} 
+            --update_file {path_to_update_file} 
+            --delete_file {path_to_delete_file} 
+            --coord_file {path_to_file} 
+            --chr_file {path_to_file} 
+            -o {output_dir}
