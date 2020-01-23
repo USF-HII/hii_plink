@@ -1,6 +1,6 @@
 # hii_plink
 
-Updates and removes duplicates in Plink files 
+Streamlines various plink commands 
 
 ## Requiremnets 
 - python 3
