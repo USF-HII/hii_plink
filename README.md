@@ -9,7 +9,7 @@ Updates and removes duplicates in Plink files
 
 ## Usage
 
-      `hii_plink <sub_command> [options...]`
+      hii_plink <sub_command> [options...]
 
 ### remove_duplicates
 
@@ -19,11 +19,11 @@ If you have plink files: test.bim, test.fam, test.bed
 
 plink_prefix = {input_dir}/test 
 
-      `hii_plink remove_duplicates --plink_prefix {plink_prefix} -o {output_dir}` 
+      hii_plink remove_duplicates --plink_prefix {plink_prefix} -o {output_dir}
 
 ##### Output 
 
-      `{output_dir}/test_no_dups_final.{bim,fam,bed}`
+      {output_dir}/test_no_dups_final.{bim,fam,bed}
 
 ### snpid_from_coord_update 
 
