@@ -39,9 +39,55 @@ def remove_duplicates(args):
     print("Finished fixing Fam IDs")
     print("***** COMPLETE ******")
 
-
 def snpid_from_coord_update(args):
-    pass
+
+    plink_fname = args['plink_prefix']
+    update_fname = args['update_file']
+    delete_fname = args['delete_file']
+    output_prefix = args['output_prefix']
+
+    file_name=splitext(basename(plink_fname))[0]
+
+    # exclude deleted snps
+    command = f'plink --bfile {plink_fname} --exclude {delete_fname} --make-bed --out {output_prefix}/{file_name}_deleted'
+    subprocess.call(command, shell=True)
+    print("Finished removing Deleted SNPs")
+
+    # exclude deleted snps
+    command = f'plink --bfile {output_prefix}/{file_name}_deleted --update-name {update_fname} --make-bed --out {output_prefix}/{file_name}_updated_final'
+    subprocess.call(command, shell=True)
+    print("Finished Updating SNPs")
+    print("***** COMPLETE ******")
 
 def snpid_and_position_update(args):
-    pass
+
+    plink_fname = args['plink_prefix']
+    update_fname = args['update_file']
+    delete_fname = args['delete_file']
+    coord_fname = args['coord_file']
+    chr_fname = args['chr_file']
+    output_prefix = args['output_prefix']
+
+    file_name=splitext(basename(plink_fname))[0]
+
+    # exclude deleted snps
+    command = f'plink --bfile {plink_fname} --exclude {delete_fname} --make-bed --out {output_prefix}/{file_name}_deleted'
+    subprocess.call(command, shell=True)
+    print("Finished removing Deleted SNPs")
+
+    # update snps
+    command = f'plink --bfile {output_prefix}/{file_name}_deleted --update-name {update_fname} --make-bed --out {output_prefix}/{file_name}_updated'
+    subprocess.call(command, shell=True)
+    print("Finished Updating SNPs")
+
+    # update coordniates
+    command = f'plink --bfile {output_prefix}/{file_name}_updated --update-map {coord_fname} --make-bed --out {output_prefix}/{file_name}_coord_update'
+    subprocess.call(command, shell=True)
+    print("Finished Updating Coordniates")
+
+    # update chromosomes
+    command = f'plink --bfile {output_prefix}/{file_name}_coord_update --update-chr {chr_fname} --make-bed --out {output_prefix}/{file_name}_updated_final'
+    subprocess.call(command, shell=True)
+    print("Finished Updating Chromosomes")
+    print("***** COMPLETE ******")
+
