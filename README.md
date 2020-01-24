@@ -34,7 +34,11 @@ Uses snptk snpid_from_coord output to update plink files
             --update_file {path_to_update_file} 
             --delete_file {path_to_delete_file} 
             -o {output_dir}
-       
+ 
+ ##### Output 
+
+      {output_dir}/test_updated_final.{bim,fam,bed}
+
 ### snpid_and_position_update 
 
 Uses snptk snpid_and_position output to update plink files 
@@ -46,3 +50,6 @@ Uses snptk snpid_and_position output to update plink files
             --coord_file {path_to_file} 
             --chr_file {path_to_file} 
             -o {output_dir}
+##### Output 
+
+      {output_dir}/test_updated_final.{bim,fam,bed}
