@@ -61,7 +61,7 @@ def main():
 
     parser_snpid_and_position_update.add_argument('--chr_file')
 
-    parser_snpid_from_coord_update.add_argument('--out_name')
+    parser_snpid_and_position_update.add_argument('--out_name')
 
     parser_snpid_and_position_update.add_argument('-o', '--output_prefix')
 
