@@ -44,6 +44,7 @@ def snpid_from_coord_update(args):
     plink_fname = args['plink_prefix']
     update_fname = args['update_file']
     delete_fname = args['delete_file']
+    out_name = args['out_name']
     output_prefix = args['output_prefix']
 
     file_name=splitext(basename(plink_fname))[0]
@@ -54,7 +55,7 @@ def snpid_from_coord_update(args):
     print("Finished removing Deleted SNPs")
 
     # exclude deleted snps
-    command = f'plink --bfile {output_prefix}/{file_name}_deleted --update-name {update_fname} --make-bed --out {output_prefix}/{file_name}_updated_final'
+    command = f'plink --bfile {output_prefix}/{file_name}_deleted --update-name {update_fname} --make-bed --out {output_prefix}/{out_name}'
     subprocess.call(command, shell=True)
     print("Finished Updating SNPs")
     print("***** COMPLETE ******")
@@ -66,6 +67,7 @@ def snpid_and_position_update(args):
     delete_fname = args['delete_file']
     coord_fname = args['coord_file']
     chr_fname = args['chr_file']
+    out_name = args['out_name']
     output_prefix = args['output_prefix']
 
     file_name=splitext(basename(plink_fname))[0]
@@ -86,7 +88,7 @@ def snpid_and_position_update(args):
     print("Finished Updating Coordniates")
 
     # update chromosomes
-    command = f'plink --bfile {output_prefix}/{file_name}_coord_update --update-chr {chr_fname} --make-bed --out {output_prefix}/{file_name}_updated_final'
+    command = f'plink --bfile {output_prefix}/{file_name}_coord_update --update-chr {chr_fname} --make-bed --out {output_prefix}/{out_name}'
     subprocess.call(command, shell=True)
     print("Finished Updating Chromosomes")
     print("***** COMPLETE ******")
